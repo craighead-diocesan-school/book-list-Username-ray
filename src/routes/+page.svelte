@@ -14,6 +14,13 @@
       bookInput.value = ""
     }
   }
+
+  function saveBook(book) {
+    const books = getBooks()
+    books.push(book)
+    localStorage.setItem("books", JSON.stringify(books))
+    displayBooks()
+  }
 </script>
 
 <Header />
@@ -24,6 +31,8 @@
   <p>Welcome to coding with SvelteKit, a modern JavaScript framework that makes it easy to code great apps.</p>
 
   <input type="text" id="bookInput" placeholder="Enter the title of the book" />
+  <button onclick="addBook()">Add</button>
+  <button onclick="saveBook()">Save</button>
   <ul id="bookList"></ul>
 </main>
 
